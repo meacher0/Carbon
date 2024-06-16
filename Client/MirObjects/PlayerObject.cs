@@ -514,10 +514,13 @@ namespace Client.MirObjects
                     case MirAction.Attack1:
                         Frames.TryGetValue(CurrentAction, out Frame);
                         break;
-                    case MirAction.Spell:
-                        Spell = (Spell)action.Params[0];
+                        /*
+                        case MirAction.Spell:
+                            Spell = (Spell)action.Params[0];
+
                         switch (Spell)
                         {
+
                             case Spell.ShoulderDash:
                                 Frames.TryGetValue(MirAction.Walking, out Frame);
                                 CurrentAction = MirAction.DashL;
@@ -531,12 +534,13 @@ namespace Client.MirObjects
                                     Network.Enqueue(new C.Magic { ObjectID = GameScene.User.ObjectID, Spell = Spell, Direction = Direction, });
                                 }
                                 break;
-                            default:
+                            default: 
                                 Frames.TryGetValue(CurrentAction, out Frame);
                                 break;
                         }
-                        
+
                         break;
+                        */
                     default:
                         Frames.TryGetValue(CurrentAction, out Frame);
                         break;
@@ -584,7 +588,9 @@ namespace Client.MirObjects
                             GameScene.Scene.MapControl.FloorValid = false;
                             //CanSetAction = false;
                             break;
+                            /*
                         case MirAction.Attack1:
+                            
                                 if (GameScene.User.Slaying && TargetObject != null)
                                     Spell = Spell.Slaying;
 
@@ -613,15 +619,13 @@ namespace Client.MirObjects
                                         }
                                     }
                                 }
-                            
+                            */
 
                             Network.Enqueue(new C.Attack { Direction = Direction, Spell = Spell });
-
-                            if (Spell == Spell.Slaying)
-                                GameScene.User.Slaying = false;
-                            if (Spell == Spell.FlamingSword)
-                                GameScene.User.FlamingSword = false;
-
+                            /*
+                            if (Spell == Spell.Slaying) GameScene.User.Slaying = false;
+                            if (Spell == Spell.FlamingSword) GameScene.User.FlamingSword = false;
+                            */
                             magic = User.GetMagic(Spell);
 
                             if (magic != null) SpellLevel = magic.Level;
@@ -696,6 +700,7 @@ namespace Client.MirObjects
                             SpellLevel = (byte)action.Params[1];
                         }
 
+                        /*
                         switch (Spell)
                         {
                             case Spell.Slaying:
@@ -710,9 +715,8 @@ namespace Client.MirObjects
                             case Spell.FlamingSword:
                                 SoundManager.PlaySound(20000 + (ushort)Spell * 10 + 1);
                                 break;
-
-                            
                         }
+                        */
                         break;
                     case MirAction.AttackRange1: //ArcherTest - Assign Target for other users
                         if (this != User)
@@ -733,6 +737,7 @@ namespace Client.MirObjects
                             SecondaryTargetIDs = (List<uint>)action.Params[5];
                         }
 
+                        /*
                         switch (Spell)
                         {
                             #region FireBall
@@ -939,8 +944,9 @@ namespace Client.MirObjects
                                 break;
 
                             #endregion
-                        }
 
+                        }
+                        */
 
                         break;
                     case MirAction.Dead:
@@ -1181,6 +1187,7 @@ namespace Client.MirObjects
 
                         if (UpdateFrame() >= Frame.Count)
                         {
+                            /*
                             if (Cast)
                             {
 
@@ -1188,6 +1195,7 @@ namespace Client.MirObjects
 
                                 Missile missile;
                                 Effect effect;
+
                                 switch (Spell)
                                 {
                                     #region FireBall
@@ -1506,6 +1514,8 @@ namespace Client.MirObjects
 
                                 Cast = false;
                             }
+                            */ 
+
                             //if (ActionFeed.Count == 0)
                             //    ActionFeed.Add(new QueuedAction { Action = MirAction.Stance, Direction = Direction, Location = CurrentLocation });
 
@@ -1756,6 +1766,8 @@ namespace Client.MirObjects
             switch (CurrentAction)
             {
                 case MirAction.Attack1:
+
+                    /*
                     switch (Spell)
                     {
                         case Spell.Slaying:
@@ -1771,6 +1783,7 @@ namespace Client.MirObjects
                             Libraries.Magic.DrawBlend(3480 + ((int)Direction * 10) + FrameIndex, DrawLocation, Color.White, true, 0.7F);
                             break;
                     }
+                    */
                     break;
             }
 

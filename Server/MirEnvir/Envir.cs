@@ -156,7 +156,7 @@ namespace Server.MirEnvir
         public List<MapRespawn> SavedSpawns = new List<MapRespawn>();
 
         public List<RankCharacterInfo> RankTop = new List<RankCharacterInfo>();
-        public List<RankCharacterInfo>[] RankClass = new List<RankCharacterInfo>[5];
+        public List<RankCharacterInfo>[] RankClass = new List<RankCharacterInfo>[6];
 
         static HttpServer http;
 
@@ -186,10 +186,12 @@ namespace Server.MirEnvir
 
         private void UpdateMagicInfo()
         {
+            /*
             for (var i = 0; i < MagicInfoList.Count; i++)
             {
                 switch (MagicInfoList[i].Spell)
                 {
+                    
                     //warrior
                     case Spell.Thrusting:
                         MagicInfoList[i].MultiplierBase = 0.25f;
@@ -214,12 +216,13 @@ namespace Server.MirEnvir
                     case Spell.Poisoning:
                         MagicInfoList[i].MPowerBase = 0;
                         break;
-                }
-            }
+        }
+    }              */
         }
 
         private void FillMagicInfoList()
         {
+            /*
             //Warrior
             if (!MagicExists(Spell.Fencing)) MagicInfoList.Add(new MagicInfo { Name = "Fencing", Spell = Spell.Fencing, Icon = 2, Level1 = 7, Level2 = 9, Level3 = 12, Need1 = 270, Need2 = 600, Need3 = 1300, Range = 0 });
             if (!MagicExists(Spell.Slaying)) MagicInfoList.Add(new MagicInfo { Name = "Slaying", Spell = Spell.Slaying, Icon = 6, Level1 = 15, Level2 = 17, Level3 = 20, Need1 = 500, Need2 = 1100, Need3 = 1800, Range = 0 });
@@ -261,6 +264,51 @@ namespace Server.MirEnvir
             if (!MagicExists(Spell.MassHealing)) MagicInfoList.Add(new MagicInfo { Name = "MassHealing", Spell = Spell.MassHealing, Icon = 28, Level1 = 31, Level2 = 33, Level3 = 36, Need1 = 2000, Need2 = 4000, Need3 = 8000, BaseCost = 28, LevelCost = 3, MPowerBase = 10, PowerBase = 4, Range = 9 });
             if (!MagicExists(Spell.Hallucination)) MagicInfoList.Add(new MagicInfo { Name = "Hallucination", Spell = Spell.Hallucination, Icon = 48, Level1 = 31, Level2 = 34, Level3 = 36, Need1 = 4000, Need2 = 6000, Need3 = 9000, BaseCost = 22, LevelCost = 10, Range = 9 });
             if (!MagicExists(Spell.UltimateEnhancer)) MagicInfoList.Add(new MagicInfo { Name = "UltimateEnchancer", Spell = Spell.UltimateEnhancer, Icon = 35, Level1 = 33, Level2 = 35, Level3 = 38, Need1 = 5000, Need2 = 7000, Need3 = 10000, BaseCost = 28, LevelCost = 4, Range = 9 });
+            */
+
+
+
+            if (!MagicExists(Spell.Reputation)) MagicInfoList.Add(new MagicInfo { Name = "Reputation", Spell = Spell.Reputation, Icon = 25, Level1 = 80, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.InsightfulPresence)) MagicInfoList.Add(new MagicInfo { Name = "InsightfulPresence", Spell = Spell.InsightfulPresence, Icon = 25, Level1 = 90, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+
+            #region DarkWarrior
+
+            if (!MagicExists(Spell.PiercingLunge)) MagicInfoList.Add(new MagicInfo { Name = "PiercingLunge", Spell = Spell.PiercingLunge, Icon = 2, Level1 = 7, Level2 = 9, Level3 = 12, Need1 = 270, Need2 = 600, Need3 = 1300, Range = 0 });
+            if (!MagicExists(Spell.ShadowSword)) MagicInfoList.Add(new MagicInfo { Name = "ShadowSword", Spell = Spell.ShadowSword, Icon = 6, Level1 = 25, Level2 = 17, Level3 = 20, Need1 = 500, Need2 = 1100, Need3 = 1800, Range = 0 });
+            if (!MagicExists(Spell.DarkDecree)) MagicInfoList.Add(new MagicInfo { Name = "DarkDecree", Spell = Spell.DarkDecree, Icon = 11, Level1 = 50, Level2 = 24, Level3 = 27, Need1 = 2000, Need2 = 3500, Need3 = 6000, Range = 0, MultiplierBase = 0.25f, MultiplierBonus = 0.25f });
+            if (!MagicExists(Spell.Moonlight)) MagicInfoList.Add(new MagicInfo { Name = "Moonlight", Spell = Spell.Moonlight, Icon = 24, Level1 = 50, Level2 = 28, Level3 = 31, Need1 = 5000, Need2 = 8000, Need3 = 14000, BaseCost = 3, Range = 0, MultiplierBase = 0.3f, MultiplierBonus = 0.1f });
+            if (!MagicExists(Spell.BloodRitual)) MagicInfoList.Add(new MagicInfo { Name = "BloodRitual", Spell = Spell.BloodRitual, Icon = 26, Level1 = 50, Level2 = 32, Level3 = 34, Need1 = 3000, Need2 = 4000, Need3 = 6000, BaseCost = 4, LevelCost = 4, DelayBase = 2500, Range = 0, MPowerBase = 4 });
+            if (!MagicExists(Spell.ShadowChant)) MagicInfoList.Add(new MagicInfo { Name = "ShadowChant", Spell = Spell.ShadowChant, Icon = 25, Level1 = 70, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.VoidMastery)) MagicInfoList.Add(new MagicInfo { Name = "VoidMastery", Spell = Spell.VoidMastery, Icon = 25, Level1 = 72, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.PhantomEclipse)) MagicInfoList.Add(new MagicInfo { Name = "PhantomEclipse", Spell = Spell.PhantomEclipse, Icon = 25, Level1 = 75, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.BladeTorrent)) MagicInfoList.Add(new MagicInfo { Name = "BladeTorrent", Spell = Spell.BladeTorrent, Icon = 25, Level1 = 85, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.SilentStrike)) MagicInfoList.Add(new MagicInfo { Name = "SilentStrike", Spell = Spell.SilentStrike, Icon = 25, Level1 = 85, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.DarkrootBlade)) MagicInfoList.Add(new MagicInfo { Name = "DarkrootBlade", Spell = Spell.DarkrootBlade, Icon = 25, Level1 = 85, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.PhantomRush)) MagicInfoList.Add(new MagicInfo { Name = "PhantomRush", Spell = Spell.PhantomRush, Icon = 25, Level1 = 92, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.VampiricOath)) MagicInfoList.Add(new MagicInfo { Name = "VampiricOath", Spell = Spell.VampiricOath, Icon = 25, Level1 = 95, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+            if (!MagicExists(Spell.EternalVengeance)) MagicInfoList.Add(new MagicInfo { Name = "EternalVengeance", Spell = Spell.EternalVengeance, Icon = 25, Level1 = 140, Level2 = 37, Level3 = 40, Need1 = 2000, Need2 = 4000, Need3 = 6000, BaseCost = 7, Range = 0, MultiplierBase = 1.4f, MultiplierBonus = 0.4f });
+
+            #endregion
+
+            #region LightWarrior
+            #endregion
+
+            #region Pyromancer
+            #endregion
+
+            #region Electromancer
+            #endregion
+
+            #region WaterSage
+            #endregion
+
+            #region EarthSage
+            #endregion
+
+
+
+
+
         }
 
         private string CanStartEnvir()
@@ -1993,7 +2041,7 @@ namespace Server.MirEnvir
                 return;
             }
 
-            if (p.Class != MirClass.Warrior && p.Class != MirClass.Wizard && p.Class != MirClass.Taoist)
+            if (p.Class != MirClass.DarkWarrior && p.Class != MirClass.LightWarrior && p.Class != MirClass.Pyromancer && p.Class != MirClass.Electromancer && p.Class != MirClass.WaterSage && p.Class != MirClass.EarthSage)
             {
                 c.Enqueue(new ServerPackets.NewCharacter { Result = 3 });
                 return;

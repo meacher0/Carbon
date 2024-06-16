@@ -357,16 +357,28 @@ namespace Server.MirDatabase
 
             switch (player.Class)
             {
-                case MirClass.Warrior:
-                    if (!RequiredClass.HasFlag(RequiredClass.Warrior))
+                case MirClass.DarkWarrior:
+                    if (!RequiredClass.HasFlag(RequiredClass.DarkWarrior))
                         return false;
                     break;
-                case MirClass.Wizard:
-                    if (!RequiredClass.HasFlag(RequiredClass.Wizard))
+                case MirClass.LightWarrior:
+                    if (!RequiredClass.HasFlag(RequiredClass.LightWarrior))
                         return false;
                     break;
-                case MirClass.Taoist:
-                    if (!RequiredClass.HasFlag(RequiredClass.Taoist))
+                case MirClass.Pyromancer:
+                    if (!RequiredClass.HasFlag(RequiredClass.Pyromancer))
+                        return false;
+                    break;
+                case MirClass.Electromancer:
+                    if (!RequiredClass.HasFlag(RequiredClass.Electromancer))
+                        return false;
+                    break;
+                case MirClass.WaterSage:
+                    if (!RequiredClass.HasFlag(RequiredClass.WaterSage))
+                        return false;
+                    break;
+                case MirClass.EarthSage:
+                    if (!RequiredClass.HasFlag(RequiredClass.EarthSage))
                         return false;
                     break;
             }

@@ -135,19 +135,22 @@
                          NoClass = "The class you selected does not exist. Contact a GM for assistance.",
                          ToManyCharacters = "You cannot make anymore then {0} Characters.",
                          CharacterNameExists = "A Character with this name already exists.",
-                         WarriorsDes = "Warriors are a class of great strength and vitality. They are not easily killed in battle and have the advantage of being able to use" +
-                                        " a variety of heavy weapons and Armour. Therefore, Warriors favor attacks that are based on melee physical damage. They are weak in ranged" +
-                                        " attacks, however the variety of equipment that are developed specifically for Warriors complement their weakness in ranged combat.",
-                         WizardDes = "Wizards are a class of low strength and stamina, but have the ability to use powerful spells. Their offensive spells are very effective, but" +
-                                        " because it takes time to cast these spells, they're likely to leave themselves open for enemy's attacks. Therefore, the physically weak wizards" +
-                                        " must aim to attack their enemies from a safe distance.",
-                         TaoistDes = "Taoists are well disciplined in the study of Astronomy, Medicine, and others aside from Mu-Gong. Rather then directly engaging the enemies, their" +
-                                        " specialty lies in assisting their allies with support. Taoists can summon powerful creatures and have a high resistance to magic, and is a class" +
-                                        " with well balanced offensive and defensive abilities.",
-                         AssassinDes = "Assassins are members of a secret organization and their history is relatively unknown. They're capable of hiding themselves and performing attacks" +
-                                        " while being unseen by others, which naturally makes them excellent at making fast kills. It is necessary for them to avoid being in battles with" +
-                                        " multiple enemies due to their weak vitality and strength.",
-                         ArcherDes = "Archers are a class of great accuracy and strength, using their powerful skills with bows to deal extraordinary damage from range. Much like" +
+                         DarkWarriorDes = "Dark Warriors are masters of the shadowy arts, excelling in combat through their exceptional physical prowess and demonic abilities." +
+                                        " Unlike other classes, they harness the dark energies to perform devastating attacks. They can unleash powerful Dark strikes that overwhelm their foes." +
+                                        " Dark Warriors must carefully manage their demon force to maximize their destructive potential, striking fear into the hearts of their enemies with each move.",
+                         LightWarriorDes = "Light Warriors are masters of agility and precision, with a deep understanding of the balance between light and shadow. They prefer to" +
+                                        " strike with speed and accuracy, using their skills to outmaneuver opponents rather than overpowering them. Light Warriors can harness the energy of light" +
+                                        " to perform swift attacks and moderately resist magic. This class excels in hit-and-run tactics, making them formidable foes on the battlefield.",
+                         PyromancerDes = "Pyromancers are masters of fire magic, harnessing the raw energy of flames to incinerate their foes. With a deep understanding of the" +
+                                        " destructive and purifying aspects of fire, they wield spells that can erupt from the ground or engulf their targets in searing heat. While their attacks are" +
+                                        " immensely powerful, Pyromancers must remain vigilant, positioning themselves strategically to unleash their fiery wrath while avoiding retaliation.",
+                         ElectromancerDes = "Electromancers are masters of the elemental force of lightning, channeling the raw energy of storms to smite their foes. With a" +
+                                        " deep understanding of electrical magic, they can unleash devastating bolts and protective barriers. Electromancers skills allow them to control the" +
+                                        " battlefield with electrifying precision, making them formidable adversaries from any range.",
+                         WaterSageDes = "Water Sages are masters of hydro-sorcery, drawing on the mystical properties of water to both nurture and devastate. They prefer" +
+                                        " to outmaneuver their opponents, wielding spells that can heal allies or freeze enemies in their tracks. With a deep understanding of the ebb and flow of" +
+                                        " battle, Water Sages can create protective barriers and even resurrect fallen comrades, making them formidable supporters in any skirmish.",
+                         EarthSageDes = "Archers are a class of great accuracy and strength, using their powerful skills with bows to deal extraordinary damage from range. Much like" +
                                         " wizards, they rely on their keen instincts to dodge oncoming attacks as they tend to leave themselves open to frontal attacks. However, their" +
                                         " physical prowess and deadly aim allows them to instil fear into anyone they hit.",
                          DateSent = "Date Sent : {0}",
@@ -187,12 +190,12 @@
                          ItemTypeQuest = "Quest",
 
                          ItemGradeCommon = "Common",
-                         ItemGradeYangWarrior = "Yang Warrior",
-                         ItemGradeNegativeWarrior = "Negative Warrior",
-                         ItemGradeFireWizard = "Fire Wizard",
-                         ItemGradeCelestialWizard = "Celestial Wizard",
-                         ItemGradeMonkTaoist = "Monk Taoist",
-                         ItemGradeInstructorTaoist = "Instructor Taoist",
+                         ItemGradeDarkWarrior = "Dark Warrior",
+                         ItemGradeLightWarrior = "Light Warrior",
+                         ItemGradePyromancer = "Pyromancer",
+                         ItemGradeElectromancer = "Electromancer",
+                         ItemGradeWaterSage = "Water Sage",
+                         ItemGradeEarthSage = "Earth Sage",
                          NoAccountID = "The AccountID does not exist.",
                          IncorrectPasswordAccountID = "Incorrect Password and AccountID combination.",
                          GroupSwitch = "Allow/Disallow Group Requests",
@@ -396,11 +399,12 @@
         GameLanguage.ToManyCharacters = reader.ReadString("Language", "ToManyCharacters", GameLanguage.ToManyCharacters);
         GameLanguage.CharacterNameExists = reader.ReadString("Language", "CharacterNameExists", GameLanguage.CharacterNameExists);
 
-        GameLanguage.WarriorsDes = reader.ReadString("Language", "WarriorsDes", GameLanguage.WarriorsDes);
-        GameLanguage.WizardDes = reader.ReadString("Language", "WizardDes", GameLanguage.WizardDes);
-        GameLanguage.TaoistDes = reader.ReadString("Language", "TaoistDes", GameLanguage.TaoistDes);
-        GameLanguage.AssassinDes = reader.ReadString("Language", "AssassinDes", GameLanguage.AssassinDes);
-        GameLanguage.ArcherDes = reader.ReadString("Language", "ArcherDes", GameLanguage.ArcherDes);
+        GameLanguage.DarkWarriorDes = reader.ReadString("Language", "DarkWarriorDes", GameLanguage.DarkWarriorDes);
+        GameLanguage.LightWarriorDes = reader.ReadString("Language", "LightWarriorDes", GameLanguage.LightWarriorDes);
+        GameLanguage.PyromancerDes = reader.ReadString("Language", "PyromancerDes", GameLanguage.PyromancerDes);
+        GameLanguage.ElectromancerDes = reader.ReadString("Language", "ElectromancerDes", GameLanguage.ElectromancerDes);
+        GameLanguage.WaterSageDes = reader.ReadString("Language", "WaterSageDes", GameLanguage.WaterSageDes);
+        GameLanguage.EarthSageDes = reader.ReadString("Language", "EarthSageDes", GameLanguage.EarthSageDes);
 
         GameLanguage.DateSent = reader.ReadString("Language", "DateSent", GameLanguage.DateSent);
         GameLanguage.Send = reader.ReadString("Language", "Send", GameLanguage.Send);
@@ -441,12 +445,12 @@
         GameLanguage.ItemTypeQuest = reader.ReadString("Language", "ItemTypeQuest", GameLanguage.ItemTypeQuest);
 
         GameLanguage.ItemGradeCommon = reader.ReadString("Language", "ItemGradeCommon", GameLanguage.ItemGradeCommon);
-        GameLanguage.ItemGradeYangWarrior = reader.ReadString("Language", "ItemGradeYangWarrior", GameLanguage.ItemGradeYangWarrior);
-        GameLanguage.ItemGradeNegativeWarrior = reader.ReadString("Language", "ItemGradeNegativeWarrior", GameLanguage.ItemGradeNegativeWarrior);
-        GameLanguage.ItemGradeFireWizard = reader.ReadString("Language", "ItemGradeFireWizard", GameLanguage.ItemGradeFireWizard);
-        GameLanguage.ItemGradeCelestialWizard = reader.ReadString("Language", "ItemGradeCelestialWizard", GameLanguage.ItemGradeCelestialWizard);
-        GameLanguage.ItemGradeMonkTaoist = reader.ReadString("Language", "ItemGradeMonkTaoist", GameLanguage.ItemGradeMonkTaoist);
-        GameLanguage.ItemGradeInstructorTaoist = reader.ReadString("Language", "ItemGradeInstructorTaoist", GameLanguage.ItemGradeInstructorTaoist);
+        GameLanguage.ItemGradeDarkWarrior = reader.ReadString("Language", "ItemGradeDarkWarrior", GameLanguage.ItemGradeDarkWarrior);
+        GameLanguage.ItemGradeLightWarrior = reader.ReadString("Language", "ItemGradeLightWarrior", GameLanguage.ItemGradeLightWarrior);
+        GameLanguage.ItemGradePyromancer = reader.ReadString("Language", "ItemGradePyromancer", GameLanguage.ItemGradePyromancer);
+        GameLanguage.ItemGradeElectromancer = reader.ReadString("Language", "ItemGradeElectromancer", GameLanguage.ItemGradeElectromancer);
+        GameLanguage.ItemGradeWaterSage = reader.ReadString("Language", "ItemGradeWaterSage", GameLanguage.ItemGradeWaterSage);
+        GameLanguage.ItemGradeEarthSage = reader.ReadString("Language", "ItemGradeEarthSage", GameLanguage.ItemGradeEarthSage);
 
         GameLanguage.NoAccountID = reader.ReadString("Language", "NoAccountID", GameLanguage.NoAccountID);
         GameLanguage.IncorrectPasswordAccountID = reader.ReadString("Language", "IncorrectPasswordAccountID", GameLanguage.IncorrectPasswordAccountID);
@@ -605,11 +609,12 @@
         reader.Write("Language", "ToManyCharacters", GameLanguage.ToManyCharacters);
         reader.Write("Language", "CharacterNameExists", GameLanguage.CharacterNameExists);
 
-        reader.Write("Language", "WarriorsDes", GameLanguage.WarriorsDes);
-        reader.Write("Language", "WizardDes", GameLanguage.WizardDes);
-        reader.Write("Language", "TaoistDes", GameLanguage.TaoistDes);
-        reader.Write("Language", "AssassinDes", GameLanguage.AssassinDes);
-        reader.Write("Language", "ArcherDes", GameLanguage.ArcherDes);
+        reader.Write("Language", "DarkWarriorDes", GameLanguage.DarkWarriorDes);
+        reader.Write("Language", "LightWarriorDes", GameLanguage.LightWarriorDes);
+        reader.Write("Language", "PyromancerDes", GameLanguage.PyromancerDes);
+        reader.Write("Language", "ElectromancerDes", GameLanguage.ElectromancerDes);
+        reader.Write("Language", "WaterSageDes", GameLanguage.WaterSageDes);
+        reader.Write("Language", "EarthSageDes", GameLanguage.EarthSageDes);
 
         reader.Write("Language", "DateSent", GameLanguage.DateSent);
         reader.Write("Language", "Send", GameLanguage.Send);
@@ -650,12 +655,12 @@
         reader.Write("Language", "ItemTypeQuest", GameLanguage.ItemTypeQuest);
 
         reader.Write("Language", "ItemGradeCommon", GameLanguage.ItemGradeCommon);
-        reader.Write("Language", "ItemGradeYangWarrior", GameLanguage.ItemGradeYangWarrior);
-        reader.Write("Language", "ItemGradeNegativeWarrior", GameLanguage.ItemGradeNegativeWarrior);
-        reader.Write("Language", "ItemGradeFireWizard", GameLanguage.ItemGradeFireWizard);
-        reader.Write("Language", "ItemGradeCelestialWizard", GameLanguage.ItemGradeCelestialWizard);
-        reader.Write("Language", "ItemGradeMonkTaoist", GameLanguage.ItemGradeMonkTaoist);
-        reader.Write("Language", "ItemGradeInstructorTaoist", GameLanguage.ItemGradeInstructorTaoist);
+        reader.Write("Language", "ItemGradeDarkWarrior", GameLanguage.ItemGradeDarkWarrior);
+        reader.Write("Language", "ItemGradeLightWarrior", GameLanguage.ItemGradeLightWarrior);
+        reader.Write("Language", "ItemGradePyromancer", GameLanguage.ItemGradePyromancer);
+        reader.Write("Language", "ItemGradeElectromancer", GameLanguage.ItemGradeElectromancer);
+        reader.Write("Language", "ItemGradeWaterSage", GameLanguage.ItemGradeWaterSage);
+        reader.Write("Language", "ItemGradeEarthSage", GameLanguage.ItemGradeEarthSage);
 
         reader.Write("Language", "NoAccountID", GameLanguage.NoAccountID);
         reader.Write("Language", "IncorrectPasswordAccountID", GameLanguage.IncorrectPasswordAccountID);

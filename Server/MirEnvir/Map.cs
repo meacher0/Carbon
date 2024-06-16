@@ -140,7 +140,7 @@ namespace Server.MirEnvir
                         if (x < 0) continue;
                         if (x >= Width) break;
                         if (!Cells[x, y].Valid) continue;
-
+                        /*
                         SpellObject spell = new SpellObject
                         {
                             ExpireTime = long.MaxValue,
@@ -154,6 +154,7 @@ namespace Server.MirEnvir
                         Cells[x, y].Add(spell);
 
                         spell.Spawned();
+                        */
                     }
                 }
             }
@@ -169,7 +170,7 @@ namespace Server.MirEnvir
                         if (x < 0) continue;
                         if (x >= Width) break;
                         if (!Cells[x, y].Valid) continue;
-
+                        /*
                         SpellObject spell = new SpellObject
                             {
                                 ExpireTime = long.MaxValue,
@@ -183,6 +184,7 @@ namespace Server.MirEnvir
                         Cells[x, y].Add(spell);
 
                         spell.Spawned();
+                        */
                     }
                 }
             }
@@ -387,6 +389,7 @@ namespace Server.MirEnvir
             MirDirection dir;
             MonsterObject monster;
             Point front;
+            /*
             switch (magic.Spell)
             {
 
@@ -882,8 +885,8 @@ namespace Server.MirEnvir
                     break;
 
                 #endregion
-        }
-
+            }
+            */
             if (train)
                 player.LevelMagic(magic);
 

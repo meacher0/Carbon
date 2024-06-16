@@ -648,6 +648,8 @@ namespace Client.MirScenes
 
             int cost;
             string prefix = string.Empty;
+
+            /*
             switch (magic.Spell)
             {
                 case Spell.Fencing:
@@ -687,6 +689,7 @@ namespace Client.MirScenes
                     actor.NextMagicDirection = MapControl.MouseDirection();
                     break;
             }
+            */
         }
         private void SendSpellToggle(UserObject Actor, Spell Spell, bool CanUse)
         {
@@ -3088,9 +3091,10 @@ namespace Client.MirScenes
                 MapObject ob = MapControl.Objects[i];
                 if (ob.ObjectID != p.ObjectID) continue;
                 PlayerObject player;
-
+                /*
                 switch (p.Effect)
                 {
+                    
                     case SpellEffect.Teleport:
                         ob.Effects.Add(new Effect(Libraries.Magic, 1600, 10, 600, ob));
                         break;
@@ -3120,8 +3124,9 @@ namespace Client.MirScenes
                         player.ShieldEffect = null;
                         player.MagicShield = false;
                         break;
-                }
-
+                    
+            }
+                */
                 return;
             }
         }
@@ -3265,7 +3270,7 @@ namespace Client.MirScenes
         {
             UserObject actor = User;
             string prefix = string.Empty;
-
+            /*
             switch (p.Spell)
             {
                 //Warrior
@@ -3288,6 +3293,7 @@ namespace Client.MirScenes
                         ChatDialog.ReceiveChat(prefix + GameLanguage.SpiritsFireDisappeared, ChatType.System);
                     break;
             }
+            */
         }
 
         private void ObjectHealth(S.ObjectHealth p)
@@ -4367,18 +4373,18 @@ namespace Client.MirScenes
             {
                 case ItemGrade.Common:
                     return Color.Yellow;
-                case ItemGrade.YangWarrior:
-                    return Color.DeepSkyBlue;
-                case ItemGrade.NegativeWarrior:
-                    return Color.DarkOrange;
-                case ItemGrade.FireWizard:
-                    return Color.Plum;
-                case ItemGrade.CelestialWizard:
-                    return Color.Red;
-                case ItemGrade.MonkTaoist:
-                    return Color.Red;
-                case ItemGrade.InstructorTaoist:
-                    return Color.Red;
+                case ItemGrade.DarkWarrior:
+                    return Color.DarkMagenta;
+                case ItemGrade.LightWarrior:
+                    return Color.LightGoldenrodYellow;
+                case ItemGrade.Pyromancer:
+                    return Color.Crimson;
+                case ItemGrade.Electromancer:
+                    return Color.DodgerBlue;
+                case ItemGrade.WaterSage:
+                    return Color.Aqua;
+                case ItemGrade.EarthSage:
+                    return Color.SandyBrown;
                 default:
                     return Color.Yellow;
             }
@@ -4424,23 +4430,23 @@ namespace Client.MirScenes
                 case ItemGrade.Common:
                     GradeString = GameLanguage.ItemGradeCommon;
                     break;
-                case ItemGrade.YangWarrior:
-                    GradeString = GameLanguage.ItemGradeYangWarrior;
+                case ItemGrade.DarkWarrior:
+                    GradeString = GameLanguage.ItemGradeDarkWarrior;
                     break;
-                case ItemGrade.NegativeWarrior:
-                    GradeString = GameLanguage.ItemGradeNegativeWarrior;
+                case ItemGrade.LightWarrior:
+                    GradeString = GameLanguage.ItemGradeLightWarrior;
                     break;
-                case ItemGrade.FireWizard:
-                    GradeString = GameLanguage.ItemGradeFireWizard;
+                case ItemGrade.Pyromancer:
+                    GradeString = GameLanguage.ItemGradePyromancer;
                     break;
-                case ItemGrade.CelestialWizard:
-                    GradeString = GameLanguage.ItemGradeCelestialWizard;
+                case ItemGrade.Electromancer:
+                    GradeString = GameLanguage.ItemGradeElectromancer;
                     break;
-                case ItemGrade.MonkTaoist:
-                    GradeString = GameLanguage.ItemGradeMonkTaoist;
+                case ItemGrade.WaterSage:
+                    GradeString = GameLanguage.ItemGradeWaterSage;
                     break;
-                case ItemGrade.InstructorTaoist:
-                    GradeString = GameLanguage.ItemGradeInstructorTaoist;
+                case ItemGrade.EarthSage:
+                    GradeString = GameLanguage.ItemGradeEarthSage;
                     break;
             }
             MirLabel nameLabel = new MirLabel
@@ -5906,16 +5912,28 @@ namespace Client.MirScenes
 
                 switch (MapObject.User.Class)
                 {
-                    case MirClass.Warrior:
-                        if (!realItem.RequiredClass.HasFlag(RequiredClass.Warrior))
+                    case MirClass.DarkWarrior:
+                        if (!realItem.RequiredClass.HasFlag(RequiredClass.DarkWarrior))
                             colour = Color.Red;
                         break;
-                    case MirClass.Wizard:
-                        if (!realItem.RequiredClass.HasFlag(RequiredClass.Wizard))
+                    case MirClass.LightWarrior:
+                        if (!realItem.RequiredClass.HasFlag(RequiredClass.LightWarrior))
                             colour = Color.Red;
                         break;
-                    case MirClass.Taoist:
-                        if (!realItem.RequiredClass.HasFlag(RequiredClass.Taoist))
+                    case MirClass.Pyromancer:
+                        if (!realItem.RequiredClass.HasFlag(RequiredClass.Pyromancer))
+                            colour = Color.Red;
+                        break;
+                    case MirClass.Electromancer:
+                        if (!realItem.RequiredClass.HasFlag(RequiredClass.Electromancer))
+                            colour = Color.Red;
+                        break;
+                    case MirClass.WaterSage:
+                        if (!realItem.RequiredClass.HasFlag(RequiredClass.WaterSage))
+                            colour = Color.Red;
+                        break;
+                    case MirClass.EarthSage:
+                        if (!realItem.RequiredClass.HasFlag(RequiredClass.EarthSage))
                             colour = Color.Red;
                         break;
                 }
@@ -8234,7 +8252,7 @@ namespace Client.MirScenes
             }
 
             int cost = magic.Level * magic.LevelCost + magic.BaseCost;
-
+            /*
             if (magic.Spell == Spell.Teleport)
             {
                 if (actor.Stats[Stat.TeleportManaPenaltyPercent] > 0)
@@ -8242,7 +8260,7 @@ namespace Client.MirScenes
                     cost += (cost * actor.Stats[Stat.TeleportManaPenaltyPercent]) / 100;
                 }
             }
-
+            */
             if (actor.Stats[Stat.ManaPenaltyPercent] > 0)
             {
                 cost += (cost * actor.Stats[Stat.ManaPenaltyPercent]) / 100;
@@ -8262,7 +8280,7 @@ namespace Client.MirScenes
             //bool isTargetSpell = true;
 
             MapObject target = null;
-
+            /*
             //Targeting
             switch (magic.Spell)
             {
@@ -8308,7 +8326,8 @@ namespace Client.MirScenes
                     break;
                 default:
                         break;
-            }
+                }
+            */
 
             MirDirection dir = (target == null || target == User) ? actor.NextMagicDirection : Functions.DirectionFromPoint(actor.CurrentLocation, target.CurrentLocation);
 

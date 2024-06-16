@@ -397,9 +397,21 @@ namespace Client.MirScenes.Dialogs
             ExperienceLabel.Text = string.Format("{0:#0.##%}", User.Experience / (double)User.MaxExperience);
             GoldLabel.Text = GameScene.Gold.ToString("###,###,##0");
             AccuracyLabel.Text = MapObject.User.Stats[Stat.Accuracy].ToString();
-            DestructiveLabel.Text = string.Format("{0}-{1}", MapObject.User.Class == MirClass.Warrior ? MapObject.User.Stats[Stat.MinDC] : MapObject.User.Stats[Stat.MinMC],
-                MapObject.User.Class == MirClass.Warrior ? MapObject.User.Stats[Stat.MaxDC] : MapObject.User.Stats[Stat.MaxMC]);
-            ACLabel.Text = string.Format("{0}-{1}", MapObject.User.Stats[Stat.MinAC],MapObject.User.Stats[Stat.MaxAC]);
+
+            if (MapObject.User.Class == MirClass.DarkWarrior || MapObject.User.Class == MirClass.LightWarrior)
+            {
+                DestructiveLabel.Text = string.Format("{0}-{1}", MapObject.User.Stats[Stat.MinDC], MapObject.User.Stats[Stat.MaxDC]);
+            }
+            else if (MapObject.User.Class == MirClass.Pyromancer || MapObject.User.Class == MirClass.Electromancer)
+            {
+                DestructiveLabel.Text = string.Format("{0}-{1}", MapObject.User.Stats[Stat.MinMC], MapObject.User.Stats[Stat.MaxMC]);
+            }
+            else if (MapObject.User.Class == MirClass.WaterSage || MapObject.User.Class == MirClass.EarthSage)
+            {
+                DestructiveLabel.Text = string.Format("{0}-{1}", MapObject.User.Stats[Stat.MinSC], MapObject.User.Stats[Stat.MaxSC]);
+            }
+
+            ACLabel.Text = string.Format("{0}-{1}", MapObject.User.Stats[Stat.MinAC], MapObject.User.Stats[Stat.MaxAC]);
             MACLabel.Text = string.Format("{0}-{1}", MapObject.User.Stats[Stat.MinMAC], MapObject.User.Stats[Stat.MaxMAC]);
             HPLabel.Text = $"{MapObject.User.HP}/{MapObject.User.Stats[Stat.HP]} ({MapObject.User.PercentHealth}%)";
             MPLabel.Text = $"{MapObject.User.MP}/{MapObject.User.Stats[Stat.MP]} ({MapObject.User.PercentMana}%)";
@@ -2034,6 +2046,7 @@ namespace Client.MirScenes.Dialogs
                 Magic.Key > 8 ? Environment.NewLine : string.Empty,
                 (Magic.Key - 1) % 8 + 1);
 
+            /*
             switch (magic.Spell)
             {  //Warrior
                 case Spell.Fencing:
@@ -2148,7 +2161,7 @@ namespace Client.MirScenes.Dialogs
 
                     break;
             }
-            
+            */
 
             SkillButton.Index = Magic.Icon * 2;
             SkillButton.PressedIndex = Magic.Icon * 2 + 1;

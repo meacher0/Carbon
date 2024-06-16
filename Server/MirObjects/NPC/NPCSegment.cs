@@ -2757,14 +2757,23 @@ namespace Server.MirObjects
 
                             switch (mirClass)
                             {
-                                case MirClass.Warrior:
-                                    player.Info.Class = MirClass.Warrior;
+                                case MirClass.DarkWarrior:
+                                    player.Info.Class = MirClass.DarkWarrior;
                                     break;
-                                case MirClass.Taoist:
-                                    player.Info.Class = MirClass.Taoist;
+                                case MirClass.LightWarrior:
+                                    player.Info.Class = MirClass.LightWarrior;
                                     break;
-                                case MirClass.Wizard:
-                                    player.Info.Class = MirClass.Wizard;
+                                case MirClass.Pyromancer:
+                                    player.Info.Class = MirClass.Pyromancer;
+                                    break;
+                                case MirClass.Electromancer:
+                                    player.Info.Class = MirClass.Electromancer;
+                                    break;
+                                case MirClass.WaterSage:
+                                    player.Info.Class = MirClass.WaterSage;
+                                    break;
+                                case MirClass.EarthSage:
+                                    player.Info.Class = MirClass.EarthSage;
                                     break;
                             }
                         }

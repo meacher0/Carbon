@@ -262,6 +262,7 @@ namespace Client.MirObjects
             for (int i = 0; i < Magics.Count; i++)
             {
                 ClientMagic magic = Magics[i];
+                /* 
                 switch (magic.Spell)
                 {
                     case Spell.Fencing:
@@ -279,6 +280,7 @@ namespace Client.MirObjects
                         // Stats[Stat.MaxDC] += (int)(Stats[Stat.MaxSC] * (magic.Level + 1) * 0.1F);
                         break;
                 }
+                */
             }
         }
 

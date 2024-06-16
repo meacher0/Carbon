@@ -230,13 +230,13 @@ namespace Server.MirObjects
         public override void Process()
         {
             if ((Race == ObjectType.Player && Connection == null) || Node == null || Info == null) return;
-
+            /*
             if (FlamingSword && Envir.Time >= FlamingSwordTime)
             {
                 FlamingSword = false;
                 Enqueue(new S.SpellToggle { ObjectID = ObjectID, Spell = Spell.FlamingSword, CanUse = false });
             }
-
+            */
             if (Stacking && Envir.Time > StackingTime)
             {
                 Stacking = false;
@@ -787,24 +787,45 @@ namespace Server.MirObjects
 
             switch (Class)
             {
-                case MirClass.Warrior:
-                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Warrior))
+                case MirClass.DarkWarrior:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.DarkWarrior))
                     {
-                        ReceiveChat("Warriors cannot use this item.", ChatType.System);
+                        ReceiveChat("Dark Warriors cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
-                case MirClass.Wizard:
-                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Wizard))
+                case MirClass.LightWarrior:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.LightWarrior))
                     {
-                        ReceiveChat("Wizards cannot use this item.", ChatType.System);
+                        ReceiveChat("Light Warriors cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
-                case MirClass.Taoist:
-                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Taoist))
+                case MirClass.Pyromancer:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Pyromancer))
                     {
-                        ReceiveChat("Taoists cannot use this item.", ChatType.System);
+                        ReceiveChat("Pyromancers cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.Electromancer:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Electromancer))
+                    {
+                        ReceiveChat("Electromancers cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.WaterSage:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.WaterSage))
+                    {
+                        ReceiveChat("Water Sages cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.EarthSage:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.EarthSage))
+                    {
+                        ReceiveChat("Earth Sages cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
@@ -1215,14 +1236,23 @@ namespace Server.MirObjects
         {
             switch (Class)
             {
-                case MirClass.Warrior:
-                    if (!info.RequiredClass.HasFlag(RequiredClass.Warrior)) return false;
+                case MirClass.DarkWarrior:
+                    if (!info.RequiredClass.HasFlag(RequiredClass.DarkWarrior)) return false;
                     break;
-                case MirClass.Wizard:
-                    if (!info.RequiredClass.HasFlag(RequiredClass.Wizard)) return false;
+                case MirClass.LightWarrior:
+                    if (!info.RequiredClass.HasFlag(RequiredClass.LightWarrior)) return false;
                     break;
-                case MirClass.Taoist:
-                    if (!info.RequiredClass.HasFlag(RequiredClass.Taoist)) return false;
+                case MirClass.Pyromancer:
+                    if (!info.RequiredClass.HasFlag(RequiredClass.Pyromancer)) return false;
+                    break;
+                case MirClass.Electromancer:
+                    if (!info.RequiredClass.HasFlag(RequiredClass.Electromancer)) return false;
+                    break;
+                case MirClass.WaterSage:
+                    if (!info.RequiredClass.HasFlag(RequiredClass.WaterSage)) return false;
+                    break;
+                case MirClass.EarthSage:
+                    if (!info.RequiredClass.HasFlag(RequiredClass.EarthSage)) return false;
                     break;
                 default:
                     return false;
@@ -1537,6 +1567,7 @@ namespace Server.MirObjects
             for (int i = 0; i < Info.Magics.Count; i++)
             {
                 UserMagic magic = Info.Magics[i];
+                /*
                 switch (magic.Spell)
                 {
                     case Spell.Fencing:
@@ -1554,6 +1585,7 @@ namespace Server.MirObjects
                         // Stats[Stat.MaxDC] += (int)(Stats[Stat.MaxSC] * (magic.Level + 1) * 0.1F);
                         break;
                 }
+                */
             }
         }
         private void RefreshBuffs()
@@ -1879,20 +1911,21 @@ namespace Server.MirObjects
 
             if (!CanAttack)
             {
+                /*
                 switch (spell)
                 {
                     case Spell.Slaying:
                         Slaying = false;
                         break;
                 }
-
+                */
                 Enqueue(new S.UserLocation { Direction = Direction, Location = CurrentLocation });
                 return;
             }
 
             byte level = 0;
             UserMagic magic;
-
+            /*
             switch (spell)
             {
                 case Spell.Slaying:
@@ -1930,7 +1963,7 @@ namespace Server.MirObjects
                     spell = Spell.None;
                     break;
             }
-
+            
 
             if (!Slaying)
             {
@@ -1942,7 +1975,7 @@ namespace Server.MirObjects
                     Enqueue(new S.SpellToggle { ObjectID = ObjectID, Spell = Spell.Slaying, CanUse = Slaying });
                 }
             }
-
+            */
             Direction = dir;
 
             Enqueue(new S.UserLocation { Direction = Direction, Location = CurrentLocation });
@@ -1959,6 +1992,7 @@ namespace Server.MirObjects
             //damageFinal = the damage you're gonna do with skills added
             int damageFinal;
 
+            /*
             if (!CurrentMap.ValidPoint(target))
             {
                 switch (spell)
@@ -1970,9 +2004,9 @@ namespace Server.MirObjects
                 }
                 return;
             }
-
+            */
             Cell cell = CurrentMap.GetCell(target);
-
+            /*
             if (cell.Objects == null)
             {
                 switch (spell)
@@ -1984,7 +2018,7 @@ namespace Server.MirObjects
                 }
                 return;
             }
-
+            */
             damageFinal = damageBase;//incase we're not using skills
             for (int i = 0; i < cell.Objects.Count; i++)
             {
@@ -2012,6 +2046,7 @@ namespace Server.MirObjects
                 var defence = DefenceType.ACAgility;
 
                 DelayedAction action;
+                /*
                 switch (spell)
                 {
                     case Spell.Slaying:
@@ -2037,13 +2072,13 @@ namespace Server.MirObjects
                         LevelMagic(magic);
                         break;
                 }
-
+                */
                 //if (ob.Attacked(this, damage, defence) <= 0) break;
                 action = new DelayedAction(DelayedType.Damage, Envir.Time + 300, ob, damageFinal, defence, true);
                 ActionList.Add(action);
                 break;
             }
-
+            /*
         Thrusting:
             if (spell == Spell.Thrusting)
             {
@@ -2099,6 +2134,7 @@ namespace Server.MirObjects
                     }
                 }
             }
+            */
         }
         public virtual bool TryMagic()
         {
@@ -2113,6 +2149,7 @@ namespace Server.MirObjects
         {
             int cost = magic.Info.BaseCost + magic.Info.LevelCost * magic.Level;
             Spell spell = magic.Spell;
+            /*
             if (spell == Spell.Teleport)
             {
                 if (Stats[Stat.TeleportManaPenaltyPercent] > 0)
@@ -2120,7 +2157,7 @@ namespace Server.MirObjects
                     cost += (cost * Stats[Stat.TeleportManaPenaltyPercent]) / 100;
                 }
             }
-
+            */
             if (Stats[Stat.ManaPenaltyPercent] > 0)
             {
                 cost += (cost * Stats[Stat.ManaPenaltyPercent]) / 100;
@@ -2150,11 +2187,12 @@ namespace Server.MirObjects
             AttackTime = Envir.Time + MoveDelay;
             SpellTime = Envir.Time + 1800; //Spell Delay
 
+            /*
             if (spell != Spell.ShoulderDash)
             {
                 ActionTime = Envir.Time + MoveDelay;
             }
-
+            */
             LogTime = Envir.Time + Globals.LogDelay;
 
             long delay = magic.GetDelay();
@@ -2177,9 +2215,10 @@ namespace Server.MirObjects
             ChangeMP(-cost);
 
             Direction = dir;
+            /*
             if (spell != Spell.ShoulderDash)
                 Enqueue(new S.UserLocation { Direction = Direction, Location = CurrentLocation });
-
+            */
             MapObject target = null;
 
             if (targetID == ObjectID)
@@ -2207,6 +2246,8 @@ namespace Server.MirObjects
 
             bool cast = true;
             byte level = magic.Level;
+
+            /*
             switch (spell)
             {
                 case Spell.FireBall:
@@ -2299,7 +2340,7 @@ namespace Server.MirObjects
                     cast = false;
                     break;
             }
-
+            */
             if (cast)
             {
                 magic.CastTime = Envir.Time;
@@ -2727,15 +2768,15 @@ namespace Server.MirObjects
                     {
                         var stats = new Stats();
 
-                        if (target.Race == ObjectType.Monster || ((HumanObject)target).Class == MirClass.Warrior)
+                        if (target.Race == ObjectType.Monster || ((HumanObject)target).Class == MirClass.DarkWarrior || ((HumanObject)target).Class == MirClass.LightWarrior)
                         {
                             stats[Stat.MaxDC] = value;
                         }
-                        else if (((HumanObject)target).Class == MirClass.Wizard)
+                        else if (((HumanObject)target).Class == MirClass.Pyromancer || ((HumanObject)target).Class == MirClass.Electromancer)
                         {
                             stats[Stat.MaxMC] = value;
                         }
-                        else if (((HumanObject)target).Class == MirClass.Taoist)
+                        else if (((HumanObject)target).Class == MirClass.WaterSage || ((HumanObject)target).Class == MirClass.EarthSage)
                         {
                             stats[Stat.MaxSC] = value;
                         }
@@ -2887,6 +2928,7 @@ namespace Server.MirObjects
 
                             if (IsAttackTarget(ob.Caster))
                             {
+                                /*
                                 switch(ob.Spell)
                                 {
                                     case Spell.FireWall:
@@ -2894,6 +2936,7 @@ namespace Server.MirObjects
                                         _blocking = true;
                                         break;
                                 }
+                                */
                             }
                         }
                     }
@@ -2941,7 +2984,7 @@ namespace Server.MirObjects
             Point targetLocation;
             Point location;
             MonsterObject monster;
-
+            /*
             switch (magic.Spell)
             {
                 #region FireBall, GreatFireBall, ThunderBolt, SoulFireBall, FlameDisruptor
@@ -3171,6 +3214,7 @@ namespace Server.MirObjects
                 #endregion
 
             }
+            */
         }
         protected void CompleteAttack(IList<object> data)
         {
@@ -3191,6 +3235,7 @@ namespace Server.MirObjects
             //Level Fencing / SpiritSword
             foreach (UserMagic magic in Info.Magics)
             {
+                /*
                 switch (magic.Spell)
                 {
                     case Spell.Fencing:
@@ -3198,6 +3243,7 @@ namespace Server.MirObjects
                         LevelMagic(magic);
                         break;
                 }
+                */
             }
         }
         protected void CompleteDamageIndicator(IList<object> data)
@@ -3886,16 +3932,28 @@ namespace Server.MirObjects
 
             switch (Class)
             {
-                case MirClass.Warrior:
-                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Warrior))
+                case MirClass.DarkWarrior:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.DarkWarrior))
                         return false;
                     break;
-                case MirClass.Wizard:
-                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Wizard))
+                case MirClass.LightWarrior:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.LightWarrior))
                         return false;
                     break;
-                case MirClass.Taoist:
-                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Taoist))
+                case MirClass.Pyromancer:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Pyromancer))
+                        return false;
+                    break;
+                case MirClass.Electromancer:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.Electromancer))
+                        return false;
+                    break;
+                case MirClass.WaterSage:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.WaterSage))
+                        return false;
+                    break;
+                case MirClass.EarthSage:
+                    if (!item.Info.RequiredClass.HasFlag(RequiredClass.EarthSage))
                         return false;
                     break;
             }
@@ -4650,6 +4708,7 @@ namespace Server.MirObjects
             if (magic == null) return;
 
             int cost;
+            /*
             switch (spell)
             {
                 case Spell.Thrusting:
@@ -4671,6 +4730,7 @@ namespace Server.MirObjects
                     ChangeMP(-cost);
                     break;
             }
+            */
         }
     }
 }

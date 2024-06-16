@@ -34,20 +34,35 @@ namespace Client.MirScenes.Dialogs
         public byte Hair;
 
         #region Descriptions
-        public const string WarriorDescription =
-            "<$Gender> Warrior\r\nWarriors are a class of great strength and vitality. They are not easily killed in battle and have the advantage of being able to use" +
-            " a variety of heavy weapons and Armour. Therefore, Warriors favor attacks that are based on melee physical damage. They are weak in ranged" +
-            " attacks, however the variety of equipment that are developed specifically for Warriors complement their weakness in ranged combat.";
+        public const string DarkWarriorDescription =
+            "<$Gender> Dark Warrior\r\nDark Warriors are masters of the shadowy arts, excelling in combat through their exceptional physical prowess and demonic abilities." +
+            " Unlike other classes, they harness the dark energies to perform devastating attacks. They can unleash powerful Dark strikes that overwhelm their foes." +
+            " Dark Warriors must carefully manage their demon force to maximize their destructive potential, striking fear into the hearts of their enemies with each move.";
 
-        public const string WizardDescription =
-            "<$Gender> Wizard\r\nWizards are a class of low strength and stamina, but have the ability to use powerful spells. Their offensive spells are very effective, but" +
-            " because it takes time to cast these spells, they're likely to leave themselves open for enemy's attacks. Therefore, the physically weak wizards" +
-            " must aim to attack their enemies from a safe distance.";
+        public const string LightWarriorDescription =
+            "<$Gender> Light Warrior\r\nLight Warriors are masters of agility and precision, with a deep understanding of the balance between light and shadow. They prefer to" +
+            " strike with speed and accuracy, using their skills to outmaneuver opponents rather than overpowering them. Light Warriors can harness the energy of light" +
+            " to perform swift attacks and moderatly resist magic. This class excels in hit-and-run tactics, making them formidable foes on the battlefield.";
 
-        public const string TaoistDescription =
-            "<$Gender> Taoist\r\nTaoists are well disciplined in the study of Astronomy, Medicine, and others aside from Mu-Gong. Rather then directly engaging the enemies, their" +
-            " specialty lies in assisting their allies with support. Taoists can summon powerful creatures and have a high resistance to magic, and is a class" +
-            " with well balanced offensive and defensive abilities.";
+        public const string PyromancerDescription =
+            "<$Gender> Pyromancer\r\nPyromancers are masters of fire magic, harnessing the raw energy of flames to incinerate their foes. With a deep understanding of the" +
+            " destructive and purifying aspects of fire, they wield spells that can erupt from the ground or engulf their targets in searing heat. While their attacks are" +
+            " immensely powerful, Pyromancers must remain vigilant, positioning themselves strategically to unleash their fiery wrath while avoiding retaliation.";
+
+        public const string ElectromancerDescription =
+            "<$Gender> Electromancer\r\nElectromancers are masters of the elemental force of lightning, channeling the raw energy of storms to smite their foes. With a" +
+            " deep understanding of electrical magic, they can unleash devastating bolts and protective barriers. Electromancers skills allow them to control the" +
+            " battlefield with electrifying precision, making them formidable adversaries from any range.";
+
+        public const string WaterSageDescription =
+            "<$Gender> Water Sage\r\nWater Sages are masters of hydro-sorcery, drawing on the mystical properties of water to both nurture and devastate. They prefer" +
+            " to outmaneuver their opponents, wielding spells that can heal allies or freeze enemies in their tracks. With a deep understanding of the ebb and flow of" +
+            " battle, Water Sages can create protective barriers and even resurrect fallen comrades, making them formidable supporters in any skirmish.";
+
+        public const string EarthSageDescription =
+            "<$Gender> Earth Sage\r\nEarth Sages are the guardians of terrestrial mysteries, mastering the elements and the land itself. With a deep understanding of" +
+            " geomancy and natural magic, they prefer to outwit their adversaries rather than confront them head-on. Earth Sages can manipulate the terrain to their" +
+            " advantage, offering a harmonious blend of offensive and defensive capabilities.";
 
         #endregion
 
@@ -101,7 +116,7 @@ namespace Client.MirScenes.Dialogs
                 Location = new Point(-200, 150),
                 Parent = this,
                 Size = new Size(178, 170),
-                Text = WarriorDescription,
+                Text = DarkWarriorDescription,
             };
 
             HairLeft = new MirButton
@@ -199,7 +214,7 @@ namespace Client.MirScenes.Dialogs
         {
             base.Show();
 
-            Class = MirClass.Warrior;
+            Class = MirClass.DarkWarrior;
             Gender = MirGender.Male;
             Hair = 1;
             NameTextBox.Text = string.Empty;
@@ -248,28 +263,49 @@ namespace Client.MirScenes.Dialogs
 
         private void UpdateInterface()
         {
-            CharacterDisplay.Index = 74 + (ClassBodyShapes[(int)Class] * 240) + (120 * (int)Gender);
+            //CharacterDisplay.Index = 74 + (ClassBodyShapes[(int)Class] +1 * 240) + (120 * (int)Gender);
             HeadDisplay.Index = 74 + (Hair * 240) + (120 * (int)Gender);
-            WeaponDisplay.Index = 74 + (ClassWeaponShapes[(int)Class] * 240) + (120 * (int)Gender);
+            //WeaponDisplay.Index = 74 + (ClassWeaponShapes[(int)Class] * 240) + (120 * (int)Gender);
 
             switch (Class)
             {
-                case MirClass.Warrior:
-                    Description.Text = WarriorDescription;
+                case MirClass.DarkWarrior:
+                    CharacterDisplay.Index = 554 + (120 * (int)Gender);
+                    WeaponDisplay.Index = 554;
+                    Description.Text = DarkWarriorDescription;
                     break;
-                case MirClass.Wizard:
-                    Description.Text = WizardDescription;
+                case MirClass.LightWarrior:
+                    CharacterDisplay.Index = 1274 + (120 * (int)Gender);
+                    WeaponDisplay.Index = 914;
+                    Description.Text = LightWarriorDescription;
                     break;
-                case MirClass.Taoist:
-                    Description.Text = TaoistDescription;
+                case MirClass.Pyromancer:
+                    CharacterDisplay.Index = 1034 + (120 * (int)Gender);
+                    WeaponDisplay.Index = 314;
+                    Description.Text = PyromancerDescription;
+                    break;
+                case MirClass.Electromancer:
+                    CharacterDisplay.Index = 794 + (120 * (int)Gender);
+                    WeaponDisplay.Index = 314;
+                    Description.Text = ElectromancerDescription;
+                    break;
+                case MirClass.WaterSage:
+                    CharacterDisplay.Index = 2234 + (120 * (int)Gender);
+                    WeaponDisplay.Index = 1154;
+                    Description.Text = WaterSageDescription;
+                    break;
+                case MirClass.EarthSage:
+                    CharacterDisplay.Index = 1994 + (120 * (int)Gender);
+                    WeaponDisplay.Index = 1154;
+                    Description.Text = EarthSageDescription;
                     break;
             }
             Description.Text = Description.Text.Replace("<$Gender>", Gender.ToString());
 
             HairLeft.Visible = Hair > 1;
             HairRight.Visible = Hair < 21;
-            ClassLeft.Visible = Class > MirClass.Warrior;
-            ClassRight.Visible = Class < MirClass.Taoist;
+            ClassLeft.Visible = Class > MirClass.DarkWarrior;
+            ClassRight.Visible = Class < MirClass.EarthSage;
             GenderLeft.Visible = Gender > MirGender.Male;
             GenderRight.Visible = Gender < MirGender.Female;
         }

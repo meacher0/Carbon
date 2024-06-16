@@ -1183,24 +1183,45 @@ namespace Client.MirControls
 
             switch (actor.Class)
             {
-                case MirClass.Warrior:
-                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.Warrior))
+                case MirClass.DarkWarrior:
+                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.DarkWarrior))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Warriors cannot use this item.", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat("Dark Warriors cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
-                case MirClass.Wizard:
-                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.Wizard))
+                case MirClass.LightWarrior:
+                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.LightWarrior))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Wizards cannot use this item.", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat("Light Warriors cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
-                case MirClass.Taoist:
-                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.Taoist))
+                case MirClass.Pyromancer:
+                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.Pyromancer))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Taoists cannot use this item.", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat("Pyromancers cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.Electromancer:
+                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.Electromancer))
+                    {
+                        GameScene.Scene.ChatDialog.ReceiveChat("Electromancers cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.WaterSage:
+                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.WaterSage))
+                    {
+                        GameScene.Scene.ChatDialog.ReceiveChat("Water Sages cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.EarthSage:
+                    if (!Item.Info.RequiredClass.HasFlag(RequiredClass.EarthSage))
+                    {
+                        GameScene.Scene.ChatDialog.ReceiveChat("Earth Sages cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
@@ -1322,24 +1343,45 @@ namespace Client.MirControls
 
             switch (actor.Class)
             {
-                case MirClass.Warrior:
-                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.Warrior))
+                case MirClass.DarkWarrior:
+                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.DarkWarrior))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Warriors cannot use this item.", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat("Dark Warriors cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
-                case MirClass.Wizard:
-                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.Wizard))
+                case MirClass.LightWarrior:
+                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.LightWarrior))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Wizards cannot use this item.", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat("Light Warriors cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;
-                case MirClass.Taoist:
-                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.Taoist))
+                case MirClass.Pyromancer:
+                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.Pyromancer))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Taoists cannot use this item.", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat("Pyromancers cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.Electromancer:
+                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.Electromancer))
+                    {
+                        GameScene.Scene.ChatDialog.ReceiveChat("Electromancers cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.WaterSage:
+                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.WaterSage))
+                    {
+                        GameScene.Scene.ChatDialog.ReceiveChat("Water Sages cannot use this item.", ChatType.System);
+                        return false;
+                    }
+                    break;
+                case MirClass.EarthSage:
+                    if (!i.Info.RequiredClass.HasFlag(RequiredClass.EarthSage))
+                    {
+                        GameScene.Scene.ChatDialog.ReceiveChat("Earth Sages cannot use this item.", ChatType.System);
                         return false;
                     }
                     break;

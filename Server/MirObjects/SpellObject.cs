@@ -47,6 +47,7 @@ namespace Server.MirObjects
 
             if (Caster != null && Caster.Node == null) Caster = null;
 
+            /*
             if (Envir.Time > ExpireTime || ((Spell == Spell.FireWall) && Caster == null) || (Spell == Spell.TrapHexagon && Target != null))
             {
                 if (Spell == Spell.TrapHexagon && Target != null && Target != null)
@@ -70,7 +71,7 @@ namespace Server.MirObjects
                     return;
                 }
             }
-
+            */
             if (Envir.Time < TickTime) return;
             TickTime = Envir.Time + TickSpeed;
 
@@ -83,6 +84,7 @@ namespace Server.MirObjects
         }
         public void ProcessSpell(MapObject ob)
         {
+            /*
             if (Envir.Time < StartTime) return;
             switch (Spell)
             {
@@ -105,6 +107,7 @@ namespace Server.MirObjects
                     }
                     break;
             }
+            */
         }
 
         public override void SetOperateTime()
@@ -194,10 +197,13 @@ namespace Server.MirObjects
 
         public override Packet GetInfo()
         {
+            
             switch (Spell)
             {
+                /*
                 case Spell.Healing:
                     return null;
+                */
                 default:
                     return new S.ObjectSpell
                     {
@@ -207,7 +213,7 @@ namespace Server.MirObjects
                         Direction = Direction
                     };
             }
-
+           
         }
 
         public override void ApplyPoison(Poison p, MapObject Caster = null, bool NoResist = false, bool ignoreDefence = true)

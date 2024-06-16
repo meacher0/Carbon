@@ -94,12 +94,12 @@ public enum ItemGrade : byte
 {
     None = 0,
     Common = 1,
-    YangWarrior = 2,
-    NegativeWarrior = 3,
-    FireWizard = 4,
-    CelestialWizard = 5,
-    MonkTaoist = 6,
-    InstructorTaoist = 7,
+    DarkWarrior = 2,
+    LightWarrior = 3,
+    Pyromancer = 4,
+    Electromancer = 5,
+    WaterSage = 6,
+    EarthSage = 7,
 }
 
 public enum RefinedValue : byte
@@ -275,9 +275,12 @@ public enum MirGender : byte
 
 public enum MirClass : byte
 {
-    Warrior = 0,
-    Wizard = 1,
-    Taoist = 2
+    DarkWarrior = 0,
+    LightWarrior = 1,
+    Pyromancer = 2,
+    Electromancer = 3,
+    WaterSage = 4,
+    EarthSage = 5,
 }
 
 public enum MirDirection : byte
@@ -446,10 +449,13 @@ public enum SpecialItemMode : short
 [Flags]
 public enum RequiredClass : byte
 {
-    Warrior = 1,
-    Wizard = 2,
-    Taoist = 4,
-    None = Warrior | Wizard | Taoist
+    DarkWarrior = 1,
+    LightWarrior = 2,
+    Pyromancer = 4,
+    Electromancer = 8,
+    WaterSage = 16,
+    EarthSage = 32,
+    None = DarkWarrior | LightWarrior | Pyromancer | Electromancer | WaterSage | EarthSage
 }
 
 [Flags]
@@ -483,8 +489,13 @@ public enum ItemSet : byte
 
 public enum Spell : byte
 {
+    // Universal
     None = 0,
+    Reputation = 199,
+    InsightfulPresence = 200,
+    
 
+    /*
     //Warrior
     Fencing = 1,
     Slaying = 2,
@@ -525,6 +536,27 @@ public enum Spell : byte
     MassHealing = 75,
     Hallucination = 76,
     UltimateEnhancer = 77,
+    */
+
+    #region DarkWarrior
+
+    PiercingLunge = 1,
+    ShadowSword = 2,
+    DarkDecree = 3,
+    Moonlight = 4,
+    BloodRitual = 5,
+    ShadowChant = 6,
+    VoidMastery = 7,
+    PhantomEclipse = 8,
+    BladeTorrent = 9,
+    SilentStrike = 10,
+    DarkrootBlade = 11,
+    PhantomRush = 12,
+    VampiricOath = 13,
+    EternalVengeance = 14
+
+    #endregion
+
 }
 
 public enum SpellEffect : byte

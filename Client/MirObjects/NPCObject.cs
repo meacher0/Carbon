@@ -419,16 +419,28 @@ namespace Client.MirObjects
             {
                 switch (User.Class)
                 {
-                    case MirClass.Warrior:
-                        if (!quest.ClassNeeded.HasFlag(RequiredClass.Warrior))
+                    case MirClass.DarkWarrior:
+                        if (!quest.ClassNeeded.HasFlag(RequiredClass.DarkWarrior))
                             return false;
                         break;
-                    case MirClass.Wizard:
-                        if (!quest.ClassNeeded.HasFlag(RequiredClass.Wizard))
+                    case MirClass.LightWarrior:
+                        if (!quest.ClassNeeded.HasFlag(RequiredClass.LightWarrior))
                             return false;
                         break;
-                    case MirClass.Taoist:
-                        if (!quest.ClassNeeded.HasFlag(RequiredClass.Taoist))
+                    case MirClass.Pyromancer:
+                        if (!quest.ClassNeeded.HasFlag(RequiredClass.Pyromancer))
+                            return false;
+                        break;
+                    case MirClass.Electromancer:
+                        if (!quest.ClassNeeded.HasFlag(RequiredClass.Electromancer))
+                            return false;
+                        break;
+                    case MirClass.WaterSage:
+                        if (!quest.ClassNeeded.HasFlag(RequiredClass.WaterSage))
+                            return false;
+                        break;
+                    case MirClass.EarthSage:
+                        if (!quest.ClassNeeded.HasFlag(RequiredClass.EarthSage))
                             return false;
                         break;
                 }

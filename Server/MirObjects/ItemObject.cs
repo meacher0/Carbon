@@ -66,18 +66,18 @@ namespace Server.MirObjects
 					NameColour = Color.White;
 				if (item.Info.Grade == ItemGrade.Common)
 					NameColour = Color.White;
-				if (item.Info.Grade == ItemGrade.YangWarrior)
-					NameColour = Color.DeepSkyBlue;
-				if (item.Info.Grade == ItemGrade.NegativeWarrior)
-					NameColour = Color.DarkOrange;
-				if (item.Info.Grade == ItemGrade.FireWizard)
-					NameColour = Color.Plum;
-                if (item.Info.Grade == ItemGrade.CelestialWizard)
-                    NameColour = Color.Red;
-                if (item.Info.Grade == ItemGrade.MonkTaoist)
-                    NameColour = Color.Red;
-                if (item.Info.Grade == ItemGrade.InstructorTaoist)
-                    NameColour = Color.Red;
+				if (item.Info.Grade == ItemGrade.DarkWarrior)
+					NameColour = Color.DarkMagenta;
+				if (item.Info.Grade == ItemGrade.LightWarrior)
+					NameColour = Color.LightGoldenrodYellow;
+				if (item.Info.Grade == ItemGrade.Pyromancer)
+					NameColour = Color.Crimson;
+                if (item.Info.Grade == ItemGrade.Electromancer)
+                    NameColour = Color.DodgerBlue;
+                if (item.Info.Grade == ItemGrade.WaterSage)
+                    NameColour = Color.Aqua;
+                if (item.Info.Grade == ItemGrade.EarthSage)
+                    NameColour = Color.SandyBrown;
             }
 
 			CurrentMap = dropper.CurrentMap;
@@ -97,18 +97,18 @@ namespace Server.MirObjects
                     NameColour = Color.White;
                 if (item.Info.Grade == ItemGrade.Common)
                     NameColour = Color.White;
-                if (item.Info.Grade == ItemGrade.YangWarrior)
-                    NameColour = Color.DeepSkyBlue;
-                if (item.Info.Grade == ItemGrade.NegativeWarrior)
-                    NameColour = Color.DarkOrange;
-                if (item.Info.Grade == ItemGrade.FireWizard)
-                    NameColour = Color.Plum;
-                if (item.Info.Grade == ItemGrade.CelestialWizard)
-                    NameColour = Color.Red;
-                if (item.Info.Grade == ItemGrade.MonkTaoist)
-                    NameColour = Color.Red;
-                if (item.Info.Grade == ItemGrade.InstructorTaoist)
-                    NameColour = Color.Red;
+                if (item.Info.Grade == ItemGrade.DarkWarrior)
+                    NameColour = Color.DarkMagenta;
+                if (item.Info.Grade == ItemGrade.LightWarrior)
+                    NameColour = Color.LightGoldenrodYellow;
+                if (item.Info.Grade == ItemGrade.Pyromancer)
+                    NameColour = Color.Crimson;
+                if (item.Info.Grade == ItemGrade.Electromancer)
+                    NameColour = Color.DodgerBlue;
+                if (item.Info.Grade == ItemGrade.WaterSage)
+                    NameColour = Color.Aqua;
+                if (item.Info.Grade == ItemGrade.EarthSage)
+                    NameColour = Color.SandyBrown;
             }
 
             CurrentMap = dropper.CurrentMap;

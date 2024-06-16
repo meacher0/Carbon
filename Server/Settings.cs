@@ -230,7 +230,7 @@ namespace Server
         public static uint GoodsBuyBackMaxStored = 20;
         public static bool GoodsHideAddedStats = true;
 
-        public static BaseStats[] ClassBaseStats = new BaseStats[3] { new BaseStats(MirClass.Warrior), new BaseStats(MirClass.Wizard), new BaseStats(MirClass.Taoist) };
+        public static BaseStats[] ClassBaseStats = new BaseStats[6] { new BaseStats(MirClass.DarkWarrior), new BaseStats(MirClass.LightWarrior), new BaseStats(MirClass.Pyromancer), new BaseStats(MirClass.Electromancer), new BaseStats(MirClass.WaterSage), new BaseStats(MirClass.EarthSage) };
 
         public static List<RandomItemStat> RandomItemStatsList = new List<RandomItemStat>();
         public static WorldMapSetup WorldMapSetup = new WorldMapSetup();

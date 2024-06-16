@@ -176,7 +176,7 @@ namespace Client.MirScenes.Dialogs
             if (cell.Item == null) return;
 
             MirAnimatedControl animEffect = null;
-
+            /*
             switch (type)
             {
                 case 0:
@@ -199,6 +199,7 @@ namespace Client.MirScenes.Dialogs
                     SoundManager.PlaySound(20000 + (ushort)Spell.MagicShield * 10);
                     break;
             }
+            */
         }
     }
     public sealed class BeltDialog : MirImageControl

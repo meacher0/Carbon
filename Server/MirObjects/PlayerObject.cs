@@ -246,7 +246,7 @@ namespace Server.MirObjects
                             break;
                         case false when Settings.PetSave is false:
 
-                            switch (Class)
+                         /*   switch (Class)
                             {
                                 case (MirClass.Wizard):
 
@@ -264,7 +264,7 @@ namespace Server.MirObjects
 
                                     break;
                             }
-
+                         */
                             break;
                     }
 
@@ -337,7 +337,7 @@ namespace Server.MirObjects
             if (!IsGM)
             {
                 Envir.OnlineRankingCount[0]--;
-                Envir.OnlineRankingCount[(int)Class + 1]--;
+                Envir.OnlineRankingCount[(int)Class]--;
             }
 
             CleanUp();
@@ -1000,10 +1000,10 @@ namespace Server.MirObjects
 
             Enqueue(new S.GuildBuffList() { GuildBuffs = Settings.Guild_BuffList });
             RequestedGuildBuffInfo = true;
-
+            /*
             if (Info.Thrusting) Enqueue(new S.SpellToggle { ObjectID = ObjectID, Spell = Spell.Thrusting, CanUse = true });
             if (Info.HalfMoon) Enqueue(new S.SpellToggle { ObjectID = ObjectID, Spell = Spell.HalfMoon, CanUse = true });
-
+            */
             for (int i = 0; i < Info.Pets.Count; i++)
             {
                 MonsterObject monster;
@@ -1034,7 +1034,7 @@ namespace Server.MirObjects
                         break;
                     case false when Settings.PetSave is false:
 
-                        switch (Class)
+                     /*   switch (Class)
                         {
                             case (MirClass.Wizard):
 
@@ -1050,7 +1050,7 @@ namespace Server.MirObjects
 
                                 break;
                         }
-
+                        */
                         break;
                 }
 
@@ -1118,7 +1118,7 @@ namespace Server.MirObjects
                 LastRankUpdate = Envir.Time;
                 Envir.CheckRankUpdate(Info);
                 Envir.OnlineRankingCount[0]++;
-                Envir.OnlineRankingCount[(int)Class + 1]++;
+                Envir.OnlineRankingCount[(int)Class]++;
             }
         }
         private void StartGameFailed()

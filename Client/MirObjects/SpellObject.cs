@@ -36,7 +36,7 @@ namespace Client.MirObjects
             Direction = info.Direction;
             Repeat = true;
             Ended = false;
-
+            /*
             switch (Spell)
             {
                 case Spell.TrapHexagon:
@@ -55,7 +55,7 @@ namespace Client.MirObjects
                     Blend = true;
                     break;
             }
-
+            */
             NextMotion = CMain.Time + FrameInterval;
             NextMotion -= NextMotion % 100;
         }
